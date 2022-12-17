@@ -1,6 +1,6 @@
 export default function Todo({ title, detail }) {
   return (
-    <li>
+    <li className="list-style-type-none">
       <input type={"checkbox"}></input>
       <div>{title}</div>
       <div>{detail}</div>
