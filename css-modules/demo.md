@@ -1,4 +1,11 @@
-CSS file built
+# Pros
+
+- Compose keyword
+- Can apply classes individually
+
+# Cons
+
+- Doesn't locally scope regular tag selectors like `ol {}`
 
 ```html
 <ol>

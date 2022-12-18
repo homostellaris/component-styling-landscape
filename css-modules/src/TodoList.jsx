@@ -1,9 +1,10 @@
 import Todo from "./Todo";
 import todos from "./todos.json";
+import styles from "./TodoList.module.css";
 
 export default function TodoList() {
   return (
-    <>
+    <div className={styles.todoList}>
       <header>
         <h1>Mars Colonisation Project</h1>
       </header>
@@ -16,6 +17,6 @@ export default function TodoList() {
           />
         ))}
       </ol>
-    </>
+    </div>
   );
 }

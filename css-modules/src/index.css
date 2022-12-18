@@ -1,0 +1,13 @@
+* {
+  box-sizing: border-box;
+  font-family: Inter, sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+header {
+  margin: 1rem;
+  text-align: center;
+}
