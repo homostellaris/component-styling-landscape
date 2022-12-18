@@ -1,4 +1,4 @@
-export default function Todo({ title, detail, first, last }) {
+export default function Todo({ title, description, first, last }) {
   const style = {
     alignItems: "center",
     border: "solid 1px black",
@@ -46,7 +46,7 @@ export default function Todo({ title, detail, first, last }) {
             fontSize: "0.8rem",
           }}
         >
-          {detail}
+          {description}
         </div>
       </div>
     </li>

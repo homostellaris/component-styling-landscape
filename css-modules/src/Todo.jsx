@@ -1,11 +1,11 @@
 import styles from "./Todo.module.css";
 
-export default function Todo({ title, detail }) {
+export default function Todo({ title, description }) {
   return (
     <li className={styles.listStyleTypeNone}>
       <input type={"checkbox"}></input>
       <div>{title}</div>
-      <div>{detail}</div>
+      <div>{description}</div>
     </li>
   );
 }

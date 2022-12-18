@@ -9,7 +9,11 @@ export default function TodoList() {
       </header>
       <ol>
         {todos.map((todo) => (
-          <Todo key={todo.id} title={todo.title} detail={todo.detail} />
+          <Todo
+            key={todo.id}
+            title={todo.title}
+            description={todo.description}
+          />
         ))}
       </ol>
     </>

@@ -1,4 +1,8 @@
-CSS file built
+# Pros
+
+# Cons
+
+- Have to look at both the component and the CSS file to get the full picture.
 
 ```html
 <ol>

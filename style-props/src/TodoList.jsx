@@ -25,7 +25,7 @@ export default function TodoList() {
           <Todo
             key={todo.id}
             title={todo.title}
-            detail={todo.detail}
+            description={todo.description}
             first={index === 0}
             last={index === todos.length - 1}
           />

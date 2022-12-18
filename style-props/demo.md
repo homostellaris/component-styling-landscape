@@ -1,3 +1,7 @@
+# Cons
+
+- Can't use pseudo-selectors and other CSS features
+
 ```html
 <ol>
   <li style="list-style-type: none;">
