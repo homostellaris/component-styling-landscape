@@ -4,13 +4,13 @@
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "index.js",
   "workspaces": [
-    "class-name-props",
+    "external-stylesheets",
     "css-in-js-compile-time",
     "css-in-js-runtime",
     "css-modules",
     "global-css",
     "sass-modules",
-    "style-props",
+    "inline-styles",
     "utility-classes"
   ],
   "scripts": {
