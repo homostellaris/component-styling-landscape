@@ -1,0 +1,29 @@
+{
+  "name": "component-styling-landscape",
+  "version": "1.0.0",
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
+  "workspaces": [
+    "class-name-props",
+    "css-in-js-compile-time",
+    "css-in-js-runtime",
+    "css-modules",
+    "global-css",
+    "sass-modules",
+    "style-props",
+    "utility-classes"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/homostellaris/component-styling-landscape.git"
+  },
+  "author": "",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/homostellaris/component-styling-landscape/issues"
+  },
+  "homepage": "https://github.com/homostellaris/component-styling-landscape#readme"
+}
