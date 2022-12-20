@@ -8,7 +8,6 @@
     "packages/css-in-js-compile-time",
     "packages/css-in-js-runtime",
     "packages/css-modules",
-    "packages/global-css",
     "packages/sass-modules",
     "packages/inline-styles",
     "packages/utility-classes",
