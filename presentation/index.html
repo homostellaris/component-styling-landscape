@@ -52,9 +52,7 @@ Add style props directly to components or use `<style>` tags to write CSS rules.
 
 ## Pros
 
-- No dependencies
-    - Bundle size unaffected.
-- Portable. Styles live inside component file.
+- Styles are co-located with component.
 
 ## Cons
 
@@ -66,19 +64,18 @@ Add style props directly to components or use `<style>` tags to write CSS rules.
 
 # External stylesheets
 
+Write separate `.css` files and link them in HTML or import into JS files to create `<style>` tags with the help of a bundler.
+
 ## Pros
 
-- No dependencies
-    - Bundle size unaffected.
-- Cache control.
-    - Browser caching can be optimized independently because it is a separate file.
+- Cache control. Browser caching can be optimized independently because it is a separate file.
 - Separation of concerns?
 
 ## Cons
 
-- Downloading doesn't start until after the main page has already been downloaded.
-- Not good for co-location.
-    - We could create lots of CSS files but downloading them all is bad for page load time.
+- Downloading doesn't start until after the main page has already been downloaded. We could create lots of CSS files but downloading them all is bad for page load time.
+- Styles are not co-located, they are in a separate file but can still be alongside the component.
+- Syntax of importing styles and applying to className feels redundant 95% of the time.
 
 ---
 
@@ -88,15 +85,13 @@ Creates CSS rules that can be imported in JS producing 'mangled' class names tha
 
 ## Pros
 
-- Compose keyword
-- Can apply classes individually
+- Local scoping
+- Compose keyword and other features
 
 ## Cons
 
-- Doesn't locally scope regular tag selectors like `ol {}`
-- Have to look at both the component and the CSS file to get the full picture.
-- Downloading doesn't start until after the main page has already been downloaded.
-	- We could create lots of CSS files but downloading them all is bad for page load time.
+- Can't locally scope regular tag selectors like `p {}`
+- Styles are not co-located.
 
 ---
 
@@ -109,7 +104,7 @@ Creates CSS rules that can be imported in JS producing 'mangled' class names tha
 
 ## Cons
 
-- Requires dev dependencies, complicates development environment slightly.
+- Steeper learning curve for devs.
 
 ---
 
@@ -117,16 +112,18 @@ Creates CSS rules that can be imported in JS producing 'mangled' class names tha
 
 ## Pros
 
-- Forces consistency with design system
-- Encourages breaking up components for style re-use
-- Efficient, avoids duplication so minimal set of possible classes are used
-- Divide class was helpful
-- Layers
+- Forces consistency with design system.
+- Encourages breaking up components for style re-use.
+- Efficient, avoids duplication so minimal set of possible css rules are used.
+- Saves time solving common problems. The `divide` class was helpful to separate todo items.
+- Layers and other features.
+- Can use JS variables in styles.
 
 ## Cons
 
-- Need to learn all the utility classes which is like learning another small 'language'
-- Looks quite ugly
+- Steeper learning curve for devs. Need to learn all the utility classes.
+- Looks ugly to some.
+- Unchecking a style in the browsers dev console removes it everywhere which makes debugging slightly more annoying.
 
 ---
 
@@ -134,15 +131,18 @@ Creates CSS rules that can be imported in JS producing 'mangled' class names tha
 
 # Pros
 
-- Local scoping. Styles are only applied to the component.
-- Can use JS variables
+- Styles are co-located with component.
+- Local scoping.
+- Can use JS variables in styles.
 
 # Cons
 
-- Requires runtime dependencies which bloats bundle
-- Performance overhead
-- Have to add a weird hint for Babel
-- Looks messy
+- Requires runtime dependencies which bloats bundle.
+- Performance overhead.
+- Problems with SSR.
+- Have to add a weird hint for Babel.
+- Looks ugly to some.
+- Clutters components tree.
 
 ---
 
@@ -150,7 +150,7 @@ Creates CSS rules that can be imported in JS producing 'mangled' class names tha
 
 Use utility classes and extract components for style re-use.
 
-If there is something you can't do nicely with utility classes then use SASS or SCSS modules.
+If there is something you can't do nicely with utility classes then use CSS/SASS/SCSS modules.
 
 ---
 
