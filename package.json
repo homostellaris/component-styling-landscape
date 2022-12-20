@@ -4,14 +4,15 @@
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "index.js",
   "workspaces": [
-    "external-stylesheets",
-    "css-in-js-compile-time",
-    "css-in-js-runtime",
-    "css-modules",
-    "global-css",
-    "sass-modules",
-    "inline-styles",
-    "utility-classes"
+    "packages/external-stylesheets",
+    "packages/css-in-js-compile-time",
+    "packages/css-in-js-runtime",
+    "packages/css-modules",
+    "packages/global-css",
+    "packages/sass-modules",
+    "packages/inline-styles",
+    "packages/utility-classes",
+    "packages/unstyled"
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
