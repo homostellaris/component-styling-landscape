@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Title</title>
+	<meta charset="utf-8">
+	<style>
+		@import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+		@import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+		@import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+		body {
+			font-family: 'Droid Serif';
+		}
+
+		h1,
+		h2,
+		h3 {
+			font-family: 'Yanone Kaffeesatz';
+			font-weight: normal;
+		}
+
+		.remark-code {
+			font-family: 'Ubuntu Mono';
+			font-size: 10px;
+			display: inline-block;
+		}
+	</style>
+</head>
+
+<body>
+	<textarea id="source">
+
+class: center, middle
+
+# Component Styling Landscape
+
+---
+
+# Agenda
+
+Same todo list styled 6 different ways.
+
+<img src="./styled todo list.png" alt="styled todo list" width="200">
+<img src="./unstyled todo list.png" alt="unstyled todo list" width="400">
+
+---
+
+# Inline styles
+
+Add style props directly to components or use `<style>` tags to write CSS rules.
+
+## Pros
+
+- No dependencies
+    - Bundle size unaffected.
+- Portable. Styles live inside component file.
+
+## Cons
+
+- No style re-use
+- Forces CSS to perform some style re-calculation when updating DOM with elements with style attributes
+- Can't use pseudo-selectors and other CSS features
+
+---
+
+# External stylesheets
+
+## Pros
+
+- No dependencies
+    - Bundle size unaffected.
+- Cache control.
+    - Browser caching can be optimized independently because it is a separate file.
+- Separation of concerns?
+
+## Cons
+
+- Downloading doesn't start until after the main page has already been downloaded.
+- Not good for co-location.
+    - We could create lots of CSS files but downloading them all is bad for page load time.
+
+---
+
+# CSS modules
+
+Creates CSS rules that can be imported in JS producing 'mangled' class names that are scoped to the component.
+
+## Pros
+
+- Compose keyword
+- Can apply classes individually
+
+## Cons
+
+- Doesn't locally scope regular tag selectors like `ol {}`
+- Have to look at both the component and the CSS file to get the full picture.
+- Downloading doesn't start until after the main page has already been downloaded.
+	- We could create lots of CSS files but downloading them all is bad for page load time.
+
+---
+
+# SASS modules
+
+## Pros
+
+- Nested selectors arguably provide better readability.
+- Many other powerful features.
+
+## Cons
+
+- Requires dev dependencies, complicates development environment slightly.
+
+---
+
+# Utility classes
+
+## Pros
+
+- Forces consistency with design system
+- Encourages breaking up components for style re-use
+- Efficient, avoids duplication so minimal set of possible classes are used
+- Divide class was helpful
+- Layers
+
+## Cons
+
+- Need to learn all the utility classes which is like learning another small 'language'
+- Looks quite ugly
+
+---
+
+# CSS-in-JS
+
+# Pros
+
+- Local scoping. Styles are only applied to the component.
+- Can use JS variables
+
+# Cons
+
+- Requires runtime dependencies which bloats bundle
+- Performance overhead
+- Have to add a weird hint for Babel
+- Looks messy
+
+---
+
+# Conclusion
+
+Use utility classes and extract components for style re-use.
+
+If there is something you can't do nicely with utility classes then use SASS or SCSS modules.
+
+---
+
+# Shoutout
+
+[Vanilla Extract](https://vanilla-extract.style/)
+
+	</textarea>
+	<script src="https://remarkjs.com/downloads/remark-latest.min.js">
+	</script>
+	<script>
+		var slideshow = remark.create({
+			navigation: {
+				scroll: true,
+			}
+		});
+	</script>
+</body>
+
+</html>
