@@ -1,0 +1,96 @@
+ {unstyled => inline-styles}/src/Todo.jsx     | 44 ++++++++++++++++++++++++----
+ {unstyled => inline-styles}/src/TodoList.jsx | 19 ++++++++++--
+ 2 files changed, 54 insertions(+), 9 deletions(-)
+
+diff --git a/unstyled/src/Todo.jsx b/inline-styles/src/Todo.jsx
+index 668ce5a..b13178e 100644
+--- a/unstyled/src/Todo.jsx
++++ b/inline-styles/src/Todo.jsx
+@@ -1,7 +1,26 @@
+-export default function Todo({ title, description }) {
++export default function Todo({ title, description, first, last }) {
++  const style = {
++    alignItems: "center",
++    border: "solid 1px black",
++    borderBottom: "none",
++    display: "flex",
++    listStyleType: "none",
++  };
++
++  if (last) style.borderBottom = "solid 1px black";
++
+   return (
+-    <li>
+-      <button>
++    <li style={style}>
++      <button
++        style={{
++          background: "none",
++          border: "none",
++          cursor: "pointer",
++          height: "50px",
++          padding: "0",
++          width: "50px",
++        }}
++      >
+         <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+           <circle
+             cx="50"
+@@ -13,9 +32,22 @@ export default function Todo({ title, description }) {
+           />
+         </svg>
+       </button>
+-      <div>
+-        <div>{title}</div>
+-        <div>{description}</div>
++      <div style={{ padding: "0.5rem 0" }}>
++        <div
++          style={{
++            fontWeight: "400",
++          }}
++        >
++          {title}
++        </div>
++        <div
++          style={{
++            fontWeight: "200",
++            fontSize: "0.8rem",
++          }}
++        >
++          {description}
++        </div>
+       </div>
+     </li>
+   );
+diff --git a/unstyled/src/TodoList.jsx b/inline-styles/src/TodoList.jsx
+index 989bd7f..65c044a 100644
+--- a/unstyled/src/TodoList.jsx
++++ b/inline-styles/src/TodoList.jsx
+@@ -3,11 +3,24 @@ import todos from "./todos.json";
+ 
+ export default function TodoList() {
+   return (
+-    <div>
+-      <header>
++    <div
++      style={{
++        boxSizing: "border-box",
++        fontFamily: "'Inter', sans-serif",
++        maxWidth: "600px",
++        margin: "0 auto",
++      }}
++    >
++      <header style={{ margin: "1rem", textAlign: "center" }}>
+         <h1>Mars Colonisation Project</h1>
+       </header>
+-      <ol>
++      <ol
++        style={{
++          listStyleType: "none",
++          padding: "0",
++          boxShadow: "3px 3px 3px #999",
++        }}
++      >
+         {todos.map((todo, index) => (
+           <Todo
+             key={todo.id}

@@ -1,0 +1,90 @@
+ {unstyled => utility-classes}/src/Todo.jsx     | 10 +++++-----
+ {unstyled => utility-classes}/src/TodoList.jsx | 10 ++++------
+ /dev/null => utility-classes/src/index.css     | 12 ++++++++++++
+ {unstyled => utility-classes}/src/index.js     |  1 +
+ 4 files changed, 22 insertions(+), 11 deletions(-)
+
+diff --git a/unstyled/src/Todo.jsx b/utility-classes/src/Todo.jsx
+index 668ce5a..51d56eb 100644
+--- a/unstyled/src/Todo.jsx
++++ b/utility-classes/src/Todo.jsx
+@@ -1,7 +1,7 @@
+ export default function Todo({ title, description }) {
+   return (
+-    <li>
+-      <button>
++    <li className="flex items-center">
++      <button className="w-12 h-12 p-0 bg-transparent border-none cursor-pointer">
+         <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+           <circle
+             cx="50"
+@@ -13,9 +13,9 @@ export default function Todo({ title, description }) {
+           />
+         </svg>
+       </button>
+-      <div>
+-        <div>{title}</div>
+-        <div>{description}</div>
++      <div className="px-0 py-2">
++        <div className="font-normal">{title}</div>
++        <div className="text-sm font-extralight">{description}</div>
+       </div>
+     </li>
+   );
+diff --git a/unstyled/src/TodoList.jsx b/utility-classes/src/TodoList.jsx
+index 989bd7f..c1d6b74 100644
+--- a/unstyled/src/TodoList.jsx
++++ b/utility-classes/src/TodoList.jsx
+@@ -3,18 +3,16 @@ import todos from "./todos.json";
+ 
+ export default function TodoList() {
+   return (
+-    <div>
+-      <header>
++    <div className="max-w-xl m-0 mx-auto">
++      <header className="m-4 text-2xl font-bold text-center">
+         <h1>Mars Colonisation Project</h1>
+       </header>
+-      <ol>
+-        {todos.map((todo, index) => (
++      <ol className="p-0 list-none divide-y divide-gray-200 shadow-lg">
++        {todos.map((todo) => (
+           <Todo
+             key={todo.id}
+             title={todo.title}
+             description={todo.description}
+-            first={index === 0}
+-            last={index === todos.length - 1}
+           />
+         ))}
+       </ol>
+diff --git a/utility-classes/src/index.css b/utility-classes/src/index.css
+new file mode 100644
+index 0000000..f4837a7
+--- /dev/null
++++ b/utility-classes/src/index.css
+@@ -0,0 +1,12 @@
++@tailwind base;
++@tailwind components;
++@tailwind utilities;
++
++* {
++  box-sizing: border-box;
++  font-family: Inter, sans-serif;
++}
++
++body {
++  margin: 0;
++}
+diff --git a/unstyled/src/index.js b/utility-classes/src/index.js
+index 0009004..3c077a1 100644
+--- a/unstyled/src/index.js
++++ b/utility-classes/src/index.js
+@@ -1,6 +1,7 @@
+ import React from "react";
+ import ReactDOM from "react-dom/client";
+ import TodoList from "./TodoList.jsx";
++import './index.css'
+ 
+ const root = ReactDOM.createRoot(document.getElementById("root"));
+ root.render(

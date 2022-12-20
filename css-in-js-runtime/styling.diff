@@ -1,0 +1,110 @@
+ {unstyled => css-in-js-runtime}/src/Todo.jsx     | 49 +++++++++++++++++++++---
+ {unstyled => css-in-js-runtime}/src/TodoList.jsx | 26 +++++++++++--
+ 2 files changed, 66 insertions(+), 9 deletions(-)
+
+diff --git a/unstyled/src/Todo.jsx b/css-in-js-runtime/src/Todo.jsx
+index 668ce5a..ee221a5 100644
+--- a/unstyled/src/Todo.jsx
++++ b/css-in-js-runtime/src/Todo.jsx
+@@ -1,7 +1,27 @@
+-export default function Todo({ title, description }) {
++/** @jsxImportSource @emotion/react */
++import { css } from "@emotion/react";
++
++export default function Todo({ title, description, first, last }) {
+   return (
+-    <li>
+-      <button>
++    <li
++      css={css`
++        align-items: center;
++        border: solid 1px black;
++        border-bottom: ${last ? "solid 1px black" : "none"};
++        display: flex;
++        list-style-type: none;
++      `}
++    >
++      <button
++        css={css`
++          background: none;
++          border: none;
++          cursor: pointer;
++          height: 50px;
++          padding: 0;
++          width: 50px;
++        `}
++      >
+         <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+           <circle
+             cx="50"
+@@ -13,9 +33,26 @@ export default function Todo({ title, description }) {
+           />
+         </svg>
+       </button>
+-      <div>
+-        <div>{title}</div>
+-        <div>{description}</div>
++      <div
++        css={css`
++          padding: 0.5rem 0;
++        `}
++      >
++        <div
++          css={css`
++            font-weight: 400;
++          `}
++        >
++          {title}
++        </div>
++        <div
++          css={css`
++            font-weight: 200;
++            font-size: 0.8rem;
++          `}
++        >
++          {description}
++        </div>
+       </div>
+     </li>
+   );
+diff --git a/unstyled/src/TodoList.jsx b/css-in-js-runtime/src/TodoList.jsx
+index 989bd7f..b0b235c 100644
+--- a/unstyled/src/TodoList.jsx
++++ b/css-in-js-runtime/src/TodoList.jsx
+@@ -1,13 +1,33 @@
++/** @jsxImportSource @emotion/react */
++import { css } from "@emotion/react";
+ import Todo from "./Todo";
+ import todos from "./todos.json";
+ 
+ export default function TodoList() {
+   return (
+-    <div>
+-      <header>
++    <div
++      css={css`
++        box-sizing: border-box;
++        font-family: "Inter", sans-serif;
++        max-width: 600px;
++        margin: 0 auto;
++      `}
++    >
++      <header
++        css={css`
++          margin: 1rem;
++          text-align: center;
++        `}
++      >
+         <h1>Mars Colonisation Project</h1>
+       </header>
+-      <ol>
++      <ol
++        css={css`
++          list-style-type: none;
++          padding: 0;
++          box-shadow: 3px 3px 3px #999;
++        `}
++      >
+         {todos.map((todo, index) => (
+           <Todo
+             key={todo.id}
