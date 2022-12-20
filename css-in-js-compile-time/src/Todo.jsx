@@ -1,26 +1,23 @@
-/** @jsxImportSource @emotion/react */
-import { css } from "@emotion/react";
-
 export default function Todo({ title, description, first, last }) {
   return (
     <li
-      css={css`
-        align-items: center;
-        border: solid 1px black;
-        border-bottom: ${last ? "solid 1px black" : "none"};
-        display: flex;
-        list-style-type: none;
-      `}
+      css={{
+        alignItems: "center",
+        border: "solid 1px black",
+        borderBottom: last ? "solid 1px black" : "none",
+        display: "flex",
+        listStyleType: "none",
+      }}
     >
       <button
-        css={css`
-          background: none;
-          border: none;
-          cursor: pointer;
-          height: 50px;
-          padding: 0;
-          width: 50px;
-        `}
+        css={{
+          background: "none",
+          border: "none",
+          cursor: "pointer",
+          height: "50px",
+          padding: 0,
+          width: "50px",
+        }}
       >
         <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
           <circle
@@ -34,22 +31,22 @@ export default function Todo({ title, description, first, last }) {
         </svg>
       </button>
       <div
-        css={css`
-          padding: 0.5rem 0;
-        `}
+        css={{
+          padding: "0.5rem 0",
+        }}
       >
         <div
-          css={css`
-            font-weight: 400;
-          `}
+          css={{
+            fontWeight: 400,
+          }}
         >
           {title}
         </div>
         <div
-          css={css`
-            font-weight: 200;
-            font-size: 0.8rem;
-          `}
+          css={{
+            fontWeight: 200,
+            fontSize: "0.8rem",
+          }}
         >
           {description}
         </div>
